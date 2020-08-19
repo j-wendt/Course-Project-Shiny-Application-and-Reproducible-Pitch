@@ -1,0 +1,49 @@
+---
+title: "Course Project: Shiny Application and Reproducible Pitch"
+author: "João Wendt"
+date: "19/08/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Assignment
+
+This is the final assignment of the Developing Data Products Course from Johns Hopkins University Data Science Specialization. This is the scope:
+
+1. Write a shiny application with associated supporting documentation. The documentation should be thought of as whatever a user will need to get started using your application.
+1. Deploy the application on Rstudio's shiny server
+1. Share the application link by pasting it into the provided text box
+1. Share your server.R and ui.R code on github
+
+## Dataset
+
+I've used a standard R dataset, called mtcars. If you've ever used R, you must be familiar with it. Below is the R code for previewing the data:
+
+```{r mtcars dataset, echo = TRUE}
+head(mtcars)
+```
+
+Please, [click here to access the shiny webapp.](https://wendt.shinyapps.io/DataProductsAssignment4/)
+
+For more information, please access the [github repository.](https://github.com/j-wendt/Course-Project-Shiny-Application-and-Reproducible-Pitch)
+
+## Algorithm
+
+The algorithm runs the linear model function, that predicts the mileage per galon based on another variable chosen by the user. Below is the example, using the variable "Number of cylinders". The result is stored in a variable called fit.
+
+```{r algorithm, echo = TRUE}
+fit <- lm(mpg ~ cyl, mtcars)
+```
+
+## Output
+After modeling, the user is presented with the fit result and plot.
+
+```{r output, echo = TRUE}
+with(mtcars,    {plot(mpg~cyl)
+                abline(fit, col=2)})
+fit
+```
+
